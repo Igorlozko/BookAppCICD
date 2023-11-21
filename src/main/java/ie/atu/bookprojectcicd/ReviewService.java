@@ -13,10 +13,10 @@ public class ReviewService {
 
     @Autowired
     private MongoTemplate mongoTemplate;
-    public Review createReview(String reviewBody, String title){
+    public Review createReview(String reviewBody, String bookId){
         Review review = reviewRepository.insert(new Review(reviewBody));
 
-        mongoTemplate.update(Book.class).matching(Criteria.where("id").is(title)).apply(new Update().push("reviewIds").value(review)).first();
+        mongoTemplate.update(Book.class).matching(Criteria.where("bookId").is(bookId)).apply(new Update().push("reviewIds").value(review)).first();
 
         return review;
     }

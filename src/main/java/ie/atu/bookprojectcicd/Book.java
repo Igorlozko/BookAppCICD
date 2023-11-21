@@ -17,14 +17,16 @@ import java.util.List;
 public class Book {
     @Id
     private ObjectId id;
-    private String author;
-    private String country;
-    private String imagelink;
-    private String language;
-    private String link;
-    private int pages;
+    private String bookId;
     private String title;
-    private int year;
+    private String author;
+    private String releaseDate;
+    private String reviewLink;
+    private String poster;
+    private List<String> genres;
+    private List<String> backdrops;
+
+
     @DocumentReference // will store ids of the review
     private List<Review> reviewIds;
 }

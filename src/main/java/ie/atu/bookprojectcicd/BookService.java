@@ -19,10 +19,10 @@ public class BookService {
     public List<Book> allBooks(){
         return bookRepository.findAll();
     }
-    public Book getBookById(String id) {
+    /*public Book getBookById(String id) {
         return (Book) bookRepository.findById(id).orElse(null);
-    }
-    public Optional<Book> singleBook(String author){
-        return bookRepository.findBookByAuthor(author);
+    }*/
+    public Optional<Book> singleBook(String bookId){
+        return bookRepository.findBookByBookId(bookId);
     }
 }
